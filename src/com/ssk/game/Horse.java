@@ -2,7 +2,7 @@ package com.ssk.game;
 
 public class Horse {
 	int id;
-	int location;
+	int location = 0;
 	
 	int columnY;
 	int color;
@@ -18,8 +18,12 @@ public class Horse {
 		return id;
 	}
 	
-	public void setLocation(int location) {
-		System.out.println("Horse is located at " + location);
-		this.location = location;
+	public void updateLocation(int location) {
+		this.location += location;
+		System.out.println("Horse[" + id +"] is located at " + this.location);
+	}
+	
+	public int getLocation() {
+		return location;
 	}
 }

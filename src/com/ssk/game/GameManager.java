@@ -27,7 +27,21 @@ public class GameManager extends Thread {
 	public void run() {
 		// TODO Auto-generated method stub
 		//super.run();
-		players[1].rollDice();
+		
+		while(isAnyPlayerRunning()) {
+			for (Player player:players) {
+				//button event
+				if (player.isRunning) {
+					player.rollDice();
+								
+					if (player.getHorse().getLocation() > 30) {
+						player.arrivedGoal();
+					}
+				}
+			}
+		}
+		
+		System.out.println("Game over!!!");
 	}
 	
 	private void init() {
@@ -38,6 +52,15 @@ public class GameManager extends Thread {
 		for (int i=0; i < MAX_PLAYER; i++) {
 			players[i] = new Player(i);
 		}
+	}
+	
+	private boolean isAnyPlayerRunning() {
+		for (Player player : players) {
+			if (player.isRunning()) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	
