@@ -1,5 +1,6 @@
 package com.ssk.game;
 
+
 public class Player {
 	int id;
 	String name;
@@ -17,8 +18,11 @@ public class Player {
 	}
 	
 	public int rollDice() {
-		System.out.println("rollDice()..");
-		lastDiceNumber = 5;
+		System.out.println("\nrollDice()..");
+		int low = 1;
+		int high = 6;
+		lastDiceNumber = (int) (Math.random() * high + low);
+		System.out.println("plyaer" +id + " got number, " + lastDiceNumber);
 		horse.updateLocation(lastDiceNumber);
 		return lastDiceNumber;
 	}
