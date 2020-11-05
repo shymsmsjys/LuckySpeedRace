@@ -35,7 +35,7 @@ public class GameManager extends Thread {
 					player.rollDice();
 								
 					if (player.getHorse().getLocation() > 30) {
-						player.arrivedGoal();
+						player.setFinish();
 					}
 				}
 			}
